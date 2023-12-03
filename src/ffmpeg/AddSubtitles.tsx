@@ -13,7 +13,7 @@ export default function AddSubtitles() {
     const ffmpeg = ffmpegRef.current;
     ffmpeg.on("log", ({ message }) => {
       // @ts-ignore: Object is possibly 'null'.
-      messageRef!.current!.innerHTML = message; 
+      messageRef!.current!.innerHTML = message;
       console.log(message);
     });
     // toBlobURL is used to bypass CORS issue, urls with the same
@@ -36,6 +36,7 @@ export default function AddSubtitles() {
         "https://raw.githubusercontent.com/ffmpegwasm/testdata/master/Big_Buck_Bunny_180_10s.webm"
       )
     );
+    
     await ffmpeg.writeFile(
       "arial.ttf",
       await fetchFile(
@@ -46,7 +47,7 @@ export default function AddSubtitles() {
       "-i",
       "input.webm",
       "-vf",
-      "drawtext=fontfile=/arial.ttf:text='ffmpeg.wasm':x=10:y=10:fontsize=24:fontcolor=white",
+      "drawtext=fontfile=/arial.ttf:text='Make My Trip':x=80:y=90:fontsize=24:fontcolor=white",
       "output.mp4",
     ]);
     const data = await ffmpeg.readFile("output.mp4");
