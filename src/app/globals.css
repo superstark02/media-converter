@@ -25,3 +25,32 @@ body {
     )
     rgb(var(--background-start-rgb));
 } */
+
+body{
+  margin: 0;
+  padding: 0;
+  background-color: #f5f5f5;
+}
+
+button, body, html{
+  cursor: url(../assets/cursor.svg), auto;
+}
+.pointer{
+  cursor: url(../assets/pointer.svg), auto;
+}
+
+.carousel-btn-left{
+  position: absolute;
+  z-index: 2;
+  left: -20px;
+  top: 150px;
+  translate: -50px 20px;
+}
+
+.carousel-btn-right{
+  position: absolute;
+  z-index: 2;
+  right: -70px;
+  top: 150px;
+  transform: rotateZ(180deg);
+}

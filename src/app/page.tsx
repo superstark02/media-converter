@@ -1,24 +1,40 @@
 "use client";
 
-import AddSubtitles from "@/ffmpeg/AddSubtitles";
-import { ImageToVideo } from "@/ffmpeg/Image2Video";
-import Interlace from "@/ffmpeg/Interlace";
+import Education from "@/components/Education";
+import Experience from "@/components/Experience";
+import Overview from "@/components/Overview";
+import Projects from "@/components/Projects";
+import Skills from "@/components/Skills";
+import Accordian from "@/module/components/Accordian";
 
 export default function Home() {
+  const segments = [
+    {
+      title: "Education",
+      components: <Education />,
+    },
+    {
+      title: "Experience",
+      components: <Experience />,
+    },
+    {
+      title: "Projects",
+      components: <Projects />,
+    },
+    {
+      title: "Skills",
+      components: <Skills />,
+    },
+  ];
   return (
-    <div style={{ display: "flex", flexDirection: "column", gap: "10px" }}>
-      <div>
-        <div>Add text over video</div>
-        <AddSubtitles />
-      </div>
-      <div>
-        <div>Interlace 2 videos</div>
-        <Interlace />
-      </div>
-      <div>
-        <div>Image To Video</div>
-        <ImageToVideo />
-      </div>
+    <div>
+      <Overview />
+      {segments.map((item, index) => (
+        <Accordian key={index} title={item.title} component={item.components} />
+      ))}
     </div>
   );
 }
+
+//parallax overviewc | custom cursor
+// Accordian -> Skills -> Contacts
